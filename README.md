@@ -24,10 +24,11 @@ Still placeholder:
 
 - Hero/purity-claims copy, FAQ, and contact info — placeholder copy written
   in FLOE's voice, marked with comments in `content.ts`.
-- The hero's Ken Burns background (`pet-still-033-hero-sharp.jpg`) is a
-  real product photo (Lanczos-upscaled + sharpened from the original) —
-  not a placeholder, just worth noting it's the one photo reused as a
-  full-bleed background rather than a product-card image.
+- The hero's Ken Burns background (`src/assets/backgrounds/icy-mountains.jpg`)
+  is a real supplied mountain photo (Lanczos-upscaled 3x + sharpened from a
+  612x397 source, since that's the resolution it came in at) — not a
+  placeholder, just worth noting it's licensed/sourced by whoever supplied
+  it, not verified here.
 
 ## Theme
 
