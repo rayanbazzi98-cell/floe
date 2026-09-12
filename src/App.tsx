@@ -1,22 +1,26 @@
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import { CartDrawer } from '@/components/CartDrawer'
 import { CursorGlow } from '@/components/CursorGlow'
-import { Footer } from '@/components/Footer'
-import { Hero } from '@/components/Hero'
 import { Navbar } from '@/components/Navbar'
-import { Products } from '@/components/Products'
-import { Quality } from '@/components/Quality'
-import { Source } from '@/components/Source'
+import { CartProvider } from '@/lib/cart'
+import { Checkout } from '@/pages/Checkout'
+import { Home } from '@/pages/Home'
 
 function App() {
   return (
-    <div className="relative">
-      <CursorGlow />
-      <Navbar />
-      <Hero />
-      <Source />
-      <Products />
-      <Quality />
-      <Footer />
-    </div>
+    <HashRouter>
+      <CartProvider>
+        <div className="relative">
+          <CursorGlow />
+          <Navbar />
+          <CartDrawer />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Routes>
+        </div>
+      </CartProvider>
+    </HashRouter>
   )
 }
 

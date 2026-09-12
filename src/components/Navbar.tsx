@@ -1,8 +1,10 @@
 import { useEffect, useState, useSyncExternalStore } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Menu, ShoppingBag, X } from 'lucide-react'
 import { Logo } from '@/assets/Logo'
 import { heroProgress } from '@/lib/scrollProgress'
 import { nav } from '@/lib/content'
+import { useCart } from '@/lib/cart'
 import { cn } from '@/lib/utils'
 
 function navShadow(isLight: boolean): React.CSSProperties {
@@ -12,8 +14,13 @@ function navShadow(isLight: boolean): React.CSSProperties {
 }
 
 export function Navbar() {
-  const isLight = useSyncExternalStore(heroProgress.subscribe, () => heroProgress.get() > 0.55)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHome = location.pathname === '/'
+  const heroLight = useSyncExternalStore(heroProgress.subscribe, () => heroProgress.get() > 0.55)
+  const isLight = isHome ? heroLight : true
   const [open, setOpen] = useState(false)
+  const cart = useCart()
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? 'hidden' : ''
@@ -22,18 +29,33 @@ export function Navbar() {
     }
   }, [open])
 
+  const goToSection = (id: string) => {
+    setOpen(false)
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/', { state: { scrollTo: id } })
+    }
+  }
+
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-5 sm:px-10">
-        <a href="#home" className="relative z-10" style={navShadow(isLight)}>
+      <header
+        className={cn(
+          'fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-5 sm:px-10',
+          !isHome && 'bg-ink/70 backdrop-blur-md',
+        )}
+      >
+        <Link to="/" className="relative z-10" style={navShadow(isLight)}>
           <Logo light={isLight || open} className="text-2xl sm:text-3xl" />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-10 sm:flex">
           {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => goToSection(item.id)}
               style={navShadow(isLight)}
               className={cn(
                 'font-body text-sm uppercase tracking-[0.2em] transition-colors',
@@ -41,22 +63,33 @@ export function Navbar() {
               )}
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
 
-        <button
-          type="button"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
-          className="relative z-10 sm:hidden"
-        >
-          {open ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <Menu className={cn('h-6 w-6', isLight ? 'text-white' : 'text-ink')} />
-          )}
-        </button>
+        <div className="flex items-center gap-5">
+          <button type="button" onClick={cart.open} aria-label="Open cart" className="relative z-10">
+            <ShoppingBag className={cn('h-5 w-5', isLight ? 'text-white' : 'text-ink')} style={navShadow(isLight)} />
+            {cart.itemCount > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-floe-red text-[10px] text-white">
+                {cart.itemCount}
+              </span>
+            )}
+          </button>
+
+          <button
+            type="button"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((v) => !v)}
+            className="relative z-10 sm:hidden"
+          >
+            {open ? (
+              <X className="h-6 w-6 text-white" />
+            ) : (
+              <Menu className={cn('h-6 w-6', isLight ? 'text-white' : 'text-ink')} />
+            )}
+          </button>
+        </div>
       </header>
 
       <div
@@ -66,14 +99,14 @@ export function Navbar() {
         )}
       >
         {nav.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            onClick={() => setOpen(false)}
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => goToSection(item.id)}
             className="font-display text-4xl text-white"
           >
             {item.label}
-          </a>
+          </button>
         ))}
       </div>
     </>

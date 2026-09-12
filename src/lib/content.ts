@@ -54,14 +54,19 @@ export type Product = {
   variant: string
   size: string
   packSize?: string
-  priceLabel: string
+  /** USD. PLACEHOLDER — no real price list was available; see priceConfirmed. */
+  price: number
   sizeConfirmed: boolean
+  priceConfirmed: boolean
 }
 
-// PLACEHOLDER — only the 0.33 L / "Low in Sodium" PET bottle is confirmed
-// from the reference photo. Sizes/prices for the other two listed SKUs
-// (glass still + glass sparkling, both seen listed on Spinneys Lebanon)
-// are placeholders pending real data.
+export const currency = 'USD'
+
+// PLACEHOLDER — only the 0.33 L / "Low in Sodium" PET bottle's size is
+// confirmed from the reference photo. Every price below is a placeholder
+// (none were available) and the other two SKU sizes (glass still + glass
+// sparkling, both seen listed on Spinneys Lebanon) are placeholders too —
+// swap all of it for real numbers whenever you have them.
 export const products: Product[] = [
   {
     id: 'pet-still-033',
@@ -69,8 +74,9 @@ export const products: Product[] = [
     variant: 'Still · PET',
     size: '0.33 L',
     packSize: 'Single bottle',
-    priceLabel: 'Ask your retailer',
+    price: 1.5,
     sizeConfirmed: true,
+    priceConfirmed: false,
   },
   {
     id: 'glass-still-075',
@@ -78,8 +84,9 @@ export const products: Product[] = [
     variant: 'Still · Glass',
     size: '0.75 L',
     packSize: 'Single bottle',
-    priceLabel: 'Ask your retailer',
+    price: 3,
     sizeConfirmed: false,
+    priceConfirmed: false,
   },
   {
     id: 'glass-sparkling-075',
@@ -87,8 +94,9 @@ export const products: Product[] = [
     variant: 'Sparkling · Glass',
     size: '0.75 L',
     packSize: 'Single bottle',
-    priceLabel: 'Ask your retailer',
+    price: 3.5,
     sizeConfirmed: false,
+    priceConfirmed: false,
   },
 ]
 
@@ -119,8 +127,8 @@ export const contact = {
 }
 
 export const nav = [
-  { label: 'Source', href: '#source' },
-  { label: 'Products', href: '#products' },
-  { label: 'Quality', href: '#quality' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Source', id: 'source' },
+  { label: 'Products', id: 'products' },
+  { label: 'Quality', id: 'quality' },
+  { label: 'Contact', id: 'contact' },
 ]
