@@ -9,24 +9,24 @@ npm run dev
 
 ## What's real vs. placeholder
 
-Product photos (`src/assets/bottles/`) are real — all 5 SKUs, used directly
-in the hero, product cards, and the parallax bottle. Sizes/pack counts read
-off those photos are marked `sizeConfirmed: true` in `src/lib/content.ts`.
+The real logo (`src/assets/brand/logo.png`, rendered via `src/assets/Logo.tsx`
+— `filter: brightness(0) invert(1)` produces the white variant for dark
+backgrounds) and product photos (`src/assets/bottles/`) are both real,
+supplied directly. Sizes/pack counts read off the product photos are marked
+`sizeConfirmed: true` in `src/lib/content.ts`.
 
-Still placeholder, because this environment has no general network access
-(outbound egress is blocked to floeworld.com and effectively every other
-site) and no way to save pasted image attachments to disk until the direct
-uploads that landed the product photos:
+Still placeholder / in progress:
 
-- **`src/assets/Logo.tsx`** — a recreated wordmark (bold red lowercase
-  "floe"), not the source logo file.
+- **Product catalog structure and prices** — the real floeworld.com shop
+  sells in multi-packs at price points that don't fully match the 5 SKUs
+  modeled here yet (built from product photos before the real shop page
+  was seen); `content.ts` needs a pass to match the live catalog exactly
+  once the full list is confirmed.
 - **`src/assets/IceMountain.tsx`** — a CSS/gradient stand-in for a Lebanon
   mountain/spring shot, used as the Ken Burns background layer in the hero
   (the real product photos are portrait bottle shots — full-bleed as a
   landscape hero background, they just crop into a zoomed-in bottle, so
   they're used as bottle images instead, not backgrounds).
-- **Prices** in `content.ts` (`priceConfirmed: false` on every product) —
-  real sizes, placeholder prices, pending the price list.
 - Hero/purity-claims copy, FAQ, and contact info are still placeholder
   copy written in FLOE's voice — marked with comments in `content.ts`.
 

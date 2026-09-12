@@ -47,7 +47,7 @@ export function Navbar() {
         )}
       >
         <Link to="/" className="relative z-10" style={navShadow(isLight)}>
-          <Logo light={isLight || open} className="text-2xl sm:text-3xl" />
+          <Logo light={isLight || open} className="h-7 sm:h-8" />
         </Link>
 
         <nav className="hidden items-center gap-10 sm:flex">

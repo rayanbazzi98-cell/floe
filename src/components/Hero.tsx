@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { ArrowDown } from 'lucide-react'
+import { Logo } from '@/assets/Logo'
 import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
 import { IceMountain } from '@/assets/IceMountain'
 import { useScrollScrub } from '@/hooks/useScrollScrub'
@@ -94,7 +95,7 @@ export function Hero() {
 
           <div ref={s3Ref} className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center" style={{ opacity: 0 }}>
             <Stagger show={active === 's3'}>
-              <p className="font-wordmark text-2xl font-extrabold lowercase tracking-tight text-floe-red">{hero.s3.kicker}</p>
+              <Logo className="mx-auto h-10 sm:h-12" />
               <h2 className="mt-4 font-display text-5xl leading-none text-white sm:text-7xl">{hero.s3.title}</h2>
             </Stagger>
           </div>

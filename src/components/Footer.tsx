@@ -11,7 +11,7 @@ export function Footer() {
       <div className="mx-auto mt-32 max-w-6xl border-t border-white/10 pt-16">
         <div className="grid gap-12 sm:grid-cols-3">
           <div>
-            <Logo className="text-3xl" light />
+            <Logo className="h-9" light />
             <p className="mt-4 font-body text-sm text-floe-ice/60">{brand.footerTagline}</p>
           </div>
 
