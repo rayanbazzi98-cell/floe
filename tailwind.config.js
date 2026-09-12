@@ -11,6 +11,12 @@ export default {
           700: '#101A1F',
           600: '#182831',
         },
+        paper: {
+          DEFAULT: '#F2F9FC',
+          50: '#FFFFFF',
+          100: '#F2F9FC',
+          200: '#E4F1F7',
+        },
         floe: {
           red: '#E01B2E',
           redDark: '#B4111F',

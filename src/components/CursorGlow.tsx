@@ -33,9 +33,9 @@ export function CursorGlow() {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed left-0 top-0 z-[60] h-72 w-72 rounded-full opacity-30 mix-blend-screen"
+      className="pointer-events-none fixed left-0 top-0 z-[60] h-72 w-72 rounded-full opacity-40 mix-blend-multiply"
       style={{
-        background: 'radial-gradient(circle, rgba(143,203,224,0.6) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(143,203,224,0.55) 0%, transparent 70%)',
       }}
       aria-hidden
     />

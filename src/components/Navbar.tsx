@@ -18,7 +18,7 @@ export function Navbar() {
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
   const heroLight = useSyncExternalStore(heroProgress.subscribe, () => heroProgress.get() > 0.55)
-  const isLight = isHome ? heroLight : true
+  const isLight = isHome ? heroLight : false
   const [open, setOpen] = useState(false)
   const cart = useCart()
 
@@ -43,11 +43,11 @@ export function Navbar() {
       <header
         className={cn(
           'fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-5 sm:px-10',
-          !isHome && 'bg-ink/70 backdrop-blur-md',
+          !isHome && 'bg-paper/80 backdrop-blur-md',
         )}
       >
         <Link to="/" className="relative z-10" style={navShadow(isLight)}>
-          <Logo light={isLight || open} className="h-7 sm:h-8" />
+          <Logo light={isLight && !open} className="h-7 sm:h-8" />
         </Link>
 
         <nav className="hidden items-center gap-10 sm:flex">
@@ -84,7 +84,7 @@ export function Navbar() {
             className="relative z-10 sm:hidden"
           >
             {open ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-6 w-6 text-ink" />
             ) : (
               <Menu className={cn('h-6 w-6', isLight ? 'text-white' : 'text-ink')} />
             )}
@@ -94,7 +94,7 @@ export function Navbar() {
 
       <div
         className={cn(
-          'fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-ink transition-opacity duration-300 sm:hidden',
+          'fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-paper transition-opacity duration-300 sm:hidden',
           open ? 'opacity-100' : 'pointer-events-none opacity-0',
         )}
       >
@@ -103,7 +103,7 @@ export function Navbar() {
             key={item.id}
             type="button"
             onClick={() => goToSection(item.id)}
-            className="font-display text-4xl text-white"
+            className="font-display text-4xl text-ink"
           >
             {item.label}
           </button>

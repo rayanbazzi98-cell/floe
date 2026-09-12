@@ -5,11 +5,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0a1013;
+    background-color: #f2f9fc;
   }
 
   body {
-    @apply bg-ink text-floe-ice font-body antialiased;
+    @apply bg-paper text-ink font-body antialiased;
     overflow-x: hidden;
   }
 
@@ -21,14 +21,14 @@
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a1013;
+    background: #f2f9fc;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1c2e37;
+    background: #bfe3f0;
     border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2e6e88;
+    background: #8fcbe0;
   }
 }
 

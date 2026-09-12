@@ -31,7 +31,14 @@ export function Hero() {
   const activeRef = useRef(active)
 
   useScrollScrub(trackRef, (p) => {
-    heroProgress.set(p)
+    // Published as a 0/1 "navbar should use light (white) text" signal, not
+    // raw progress — progress clamps at 1 once you scroll past the hero, so
+    // deriving "light" from progress alone would stay true forever after
+    // (invisible against the light sections below). Gate it on the hero
+    // track actually still being near the top of the viewport too.
+    const heroBottom = trackRef.current?.getBoundingClientRect().bottom ?? 0
+    const navLight = p > 0.55 && heroBottom > 120
+    heroProgress.set(navLight ? 1 : 0)
 
     if (mountainRef.current) mountainRef.current.style.transform = mountainTransform(p)
 

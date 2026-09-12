@@ -1,14 +1,16 @@
 import glassSparkling033 from '@/assets/bottles/glass-sparkling-033.png'
 import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
-import petStill033 from '@/assets/bottles/pet-still-033-lifestyle.jpg'
 import petStill05L12Pack from '@/assets/bottles/pet-still-05L-12pack.png'
 import petStill1L6Pack from '@/assets/bottles/pet-still-1L-6pack.png'
 
 // Site copy & product data for FLOE.
 //
-// Product photos and sizes/pack counts below are real (from photos supplied
-// directly), so sizeConfirmed is true for all five SKUs. Prices are still
-// placeholders (priceConfirmed: false) pending the real price list.
+// The product catalog (names/sizes/pack counts/prices) is read straight off
+// the real floeworld.com shop page — all 7 SKUs, all CONFIRMED. Three of
+// them (330ml/12-pack PET, still glass 12-pack, still glass 24-pack) don't
+// have a matching product photo yet — showing the wrong bottle (e.g. a
+// "sparkling" label on a still product) would misrepresent it, so those
+// render a "Photo pending" placeholder instead of `image`.
 // Everything else (hero copy, purity claims, FAQ, contact info) remains
 // placeholder copy written in FLOE's voice — swap it for the real thing
 // whenever you can get it to this session.
@@ -61,75 +63,94 @@ export type Product = {
   variant: string
   size: string
   packSize?: string
-  /** USD. PLACEHOLDER — no real price list was available yet; see priceConfirmed. */
+  /** USD. Real, from floeworld.com. */
   price: number
   sizeConfirmed: boolean
   priceConfirmed: boolean
-  image: string
-  /** true for the one lifestyle photo (has its own background); false for transparent cutouts. */
+  /** Omitted where no matching product photo exists yet — renders a "Photo pending" placeholder. */
+  image?: string
+  /** true for a photo with its own background (not a transparent cutout). */
   imageHasBackground?: boolean
 }
 
 export const currency = 'USD'
 
-// Prices are PLACEHOLDER (priceConfirmed: false) pending the real price
-// list — everything else is read straight off the product photos supplied.
+// Real catalog (names/sizes/pack counts/prices) from floeworld.com's shop
+// page, top to bottom.
 export const products: Product[] = [
-  {
-    id: 'pet-still-033',
-    name: 'FLOE Natural Mineral Water',
-    variant: 'Still · PET',
-    size: '0.33 L',
-    packSize: 'Single bottle',
-    price: 1.5,
-    sizeConfirmed: true,
-    priceConfirmed: false,
-    image: petStill033,
-    imageHasBackground: true,
-  },
   {
     id: 'pet-still-1l-6pack',
     name: 'FLOE Natural Mineral Water',
     variant: 'Still · PET',
     size: '1.0 L',
     packSize: '6-pack',
-    price: 6,
+    price: 3.95,
     sizeConfirmed: true,
-    priceConfirmed: false,
+    priceConfirmed: true,
     image: petStill1L6Pack,
+  },
+  {
+    id: 'pet-still-330ml-12pack',
+    name: 'FLOE Natural Mineral Water',
+    variant: 'Still · PET',
+    size: '330 ml',
+    packSize: '12-pack',
+    price: 3.95,
+    sizeConfirmed: true,
+    priceConfirmed: true,
   },
   {
     id: 'pet-still-05l-12pack',
     name: 'FLOE Natural Mineral Water',
     variant: 'Still · PET',
-    size: '0.5 L',
+    size: '500 ml',
     packSize: '12-pack',
-    price: 9,
+    price: 3.95,
     sizeConfirmed: true,
-    priceConfirmed: false,
+    priceConfirmed: true,
     image: petStill05L12Pack,
   },
   {
-    id: 'glass-sparkling-033',
-    name: 'FLOE Sparkling Mineral Water',
-    variant: 'Sparkling · Glass',
-    size: '0.33 L',
-    packSize: 'Single bottle',
-    price: 2.5,
+    id: 'glass-still-1l-12pack',
+    name: 'FLOE Natural Mineral Water',
+    variant: 'Still · Glass',
+    size: '1.0 L',
+    packSize: '12-pack',
+    price: 16,
     sizeConfirmed: true,
-    priceConfirmed: false,
-    image: glassSparkling033,
+    priceConfirmed: true,
   },
   {
-    id: 'glass-sparkling-1l',
+    id: 'glass-sparkling-1l-12pack',
     name: 'FLOE Sparkling Mineral Water',
     variant: 'Sparkling · Glass',
     size: '1.0 L',
-    packSize: 'Single bottle',
-    price: 4.5,
+    packSize: '12-pack',
+    price: 16,
     sizeConfirmed: true,
-    priceConfirmed: false,
+    priceConfirmed: true,
     image: glassSparkling1L,
+  },
+  {
+    id: 'glass-still-330ml-24pack',
+    name: 'FLOE Natural Mineral Water',
+    variant: 'Still · Glass',
+    size: '330 ml',
+    packSize: '24-pack',
+    price: 16,
+    sizeConfirmed: true,
+    priceConfirmed: true,
+  },
+  {
+    id: 'glass-sparkling-330ml-24pack',
+    name: 'FLOE Sparkling Mineral Water',
+    variant: 'Sparkling · Glass',
+    size: '330 ml',
+    packSize: '24-pack',
+    price: 16,
+    sizeConfirmed: true,
+    priceConfirmed: true,
+    image: glassSparkling033,
   },
 ]
 

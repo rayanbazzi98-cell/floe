@@ -42,10 +42,10 @@ export function GlitchText({ text, as: Tag = 'span', className }: GlitchTextProp
       </span>
       {bursting && (
         <>
-          <span aria-hidden className="absolute inset-0 text-floe-red mix-blend-screen animate-glitch1">
+          <span aria-hidden className="absolute inset-0 text-floe-red mix-blend-multiply animate-glitch1">
             {text}
           </span>
-          <span aria-hidden className="absolute inset-0 text-floe-glacier mix-blend-screen animate-glitch2">
+          <span aria-hidden className="absolute inset-0 text-floe-deep mix-blend-multiply animate-glitch2">
             {text}
           </span>
         </>
