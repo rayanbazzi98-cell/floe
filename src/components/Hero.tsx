@@ -4,6 +4,7 @@ import { Logo } from '@/assets/Logo'
 import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
 import heroPhoto from '@/assets/backgrounds/icy-mountains.jpg'
 import { useScrollScrub } from '@/hooks/useScrollScrub'
+import { useTilt3D } from '@/hooks/useTilt3D'
 import { heroProgress } from '@/lib/scrollProgress'
 import {
   activeSection,
@@ -29,6 +30,7 @@ export function Hero() {
 
   const [active, setActive] = useState<'s1' | 's2' | 's3' | null>('s1')
   const activeRef = useRef(active)
+  const tiltRef = useTilt3D(16)
 
   useScrollScrub(trackRef, (p) => {
     // Published as a 0/1 "navbar should use light (white) text" signal, not
@@ -73,15 +75,18 @@ export function Hero() {
 
         <div
           ref={bottleRef}
-          className="absolute inset-x-0 bottom-0 z-20 flex justify-center will-change-transform"
+          className="absolute inset-x-0 bottom-0 z-20 flex flex-col items-center will-change-transform"
           style={{ opacity: 0 }}
         >
-          <img
-            src={glassSparkling1L}
-            alt="FLOE sparkling mineral water bottle"
-            className="h-[38vh] max-h-[360px] animate-floaty object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
-            style={{ '--r0': '-2deg', '--r1': '2deg' } as React.CSSProperties}
-          />
+          <div ref={tiltRef} className="will-change-transform [transform-style:preserve-3d]">
+            <img
+              src={glassSparkling1L}
+              alt="FLOE sparkling mineral water bottle"
+              className="h-[38vh] max-h-[360px] animate-floaty object-contain drop-shadow-[0_40px_50px_rgba(0,0,0,0.5)]"
+              style={{ '--r0': '-2deg', '--r1': '2deg' } as React.CSSProperties}
+            />
+          </div>
+          <div className="-mt-4 h-6 w-40 rounded-[50%] bg-black/35 blur-xl" />
         </div>
 
         <div className="relative z-30 h-full w-full [text-shadow:0_4px_30px_rgba(0,0,0,0.45)]">
