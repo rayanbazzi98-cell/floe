@@ -1,10 +1,17 @@
+import glassSparkling033 from '@/assets/bottles/glass-sparkling-033.png'
+import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
+import petStill033 from '@/assets/bottles/pet-still-033-lifestyle.jpg'
+import petStill05L12Pack from '@/assets/bottles/pet-still-05L-12pack.png'
+import petStill1L6Pack from '@/assets/bottles/pet-still-1L-6pack.png'
+
 // Site copy & product data for FLOE.
 //
-// CONFIRMED from the reference photo supplied: wordmark "floe", red-on-white
-// label, copy "NATURAL MINERAL WATER" / "LOW IN SODIUM" / "0.33 L".
-// Everything else below (other SKU sizes, prices, FAQ, contact info) is
+// Product photos and sizes/pack counts below are real (from photos supplied
+// directly), so sizeConfirmed is true for all five SKUs. Prices are still
+// placeholders (priceConfirmed: false) pending the real price list.
+// Everything else (hero copy, purity claims, FAQ, contact info) remains
 // placeholder copy written in FLOE's voice — swap it for the real thing
-// from floeworld.com whenever you can get it to this session.
+// whenever you can get it to this session.
 
 export const brand = {
   name: 'FLOE',
@@ -54,19 +61,19 @@ export type Product = {
   variant: string
   size: string
   packSize?: string
-  /** USD. PLACEHOLDER — no real price list was available; see priceConfirmed. */
+  /** USD. PLACEHOLDER — no real price list was available yet; see priceConfirmed. */
   price: number
   sizeConfirmed: boolean
   priceConfirmed: boolean
+  image: string
+  /** true for the one lifestyle photo (has its own background); false for transparent cutouts. */
+  imageHasBackground?: boolean
 }
 
 export const currency = 'USD'
 
-// PLACEHOLDER — only the 0.33 L / "Low in Sodium" PET bottle's size is
-// confirmed from the reference photo. Every price below is a placeholder
-// (none were available) and the other two SKU sizes (glass still + glass
-// sparkling, both seen listed on Spinneys Lebanon) are placeholders too —
-// swap all of it for real numbers whenever you have them.
+// Prices are PLACEHOLDER (priceConfirmed: false) pending the real price
+// list — everything else is read straight off the product photos supplied.
 export const products: Product[] = [
   {
     id: 'pet-still-033',
@@ -77,26 +84,52 @@ export const products: Product[] = [
     price: 1.5,
     sizeConfirmed: true,
     priceConfirmed: false,
+    image: petStill033,
+    imageHasBackground: true,
   },
   {
-    id: 'glass-still-075',
+    id: 'pet-still-1l-6pack',
     name: 'FLOE Natural Mineral Water',
-    variant: 'Still · Glass',
-    size: '0.75 L',
-    packSize: 'Single bottle',
-    price: 3,
-    sizeConfirmed: false,
+    variant: 'Still · PET',
+    size: '1.0 L',
+    packSize: '6-pack',
+    price: 6,
+    sizeConfirmed: true,
     priceConfirmed: false,
+    image: petStill1L6Pack,
   },
   {
-    id: 'glass-sparkling-075',
+    id: 'pet-still-05l-12pack',
+    name: 'FLOE Natural Mineral Water',
+    variant: 'Still · PET',
+    size: '0.5 L',
+    packSize: '12-pack',
+    price: 9,
+    sizeConfirmed: true,
+    priceConfirmed: false,
+    image: petStill05L12Pack,
+  },
+  {
+    id: 'glass-sparkling-033',
     name: 'FLOE Sparkling Mineral Water',
     variant: 'Sparkling · Glass',
-    size: '0.75 L',
+    size: '0.33 L',
     packSize: 'Single bottle',
-    price: 3.5,
-    sizeConfirmed: false,
+    price: 2.5,
+    sizeConfirmed: true,
     priceConfirmed: false,
+    image: glassSparkling033,
+  },
+  {
+    id: 'glass-sparkling-1l',
+    name: 'FLOE Sparkling Mineral Water',
+    variant: 'Sparkling · Glass',
+    size: '1.0 L',
+    packSize: 'Single bottle',
+    price: 4.5,
+    sizeConfirmed: true,
+    priceConfirmed: false,
+    image: glassSparkling1L,
   },
 ]
 

@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
-import { Bottle } from '@/assets/Bottle'
 import { products, type Product } from '@/lib/content'
 import { useCart } from '@/lib/cart'
-import { formatPrice } from '@/lib/utils'
+import { cn, formatPrice } from '@/lib/utils'
 
 function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart()
@@ -19,10 +18,18 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="group relative flex flex-col items-center rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm transition-transform duration-500 hover:-translate-y-2">
-      <Bottle
-        className="h-56 transition-transform duration-500 group-hover:scale-105"
-        labelSize={product.size}
-      />
+      <div
+        className={cn(
+          'flex h-56 w-full items-center justify-center overflow-hidden',
+          product.imageHasBackground && 'rounded-2xl',
+        )}
+      >
+        <img
+          src={product.image}
+          alt={`${product.name} — ${product.variant}, ${product.size}${product.packSize ? `, ${product.packSize}` : ''}`}
+          className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
       <h3 className="mt-8 font-display text-2xl text-white">{product.name}</h3>
       <p className="mt-1 font-body text-xs uppercase tracking-[0.25em] text-floe-mist">{product.variant}</p>
       <div className="mt-4 font-body text-sm text-floe-ice/70">

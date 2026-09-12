@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { ArrowDown } from 'lucide-react'
-import { Bottle } from '@/assets/Bottle'
+import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
 import { IceMountain } from '@/assets/IceMountain'
 import { useScrollScrub } from '@/hooks/useScrollScrub'
 import { heroProgress } from '@/lib/scrollProgress'
@@ -61,15 +61,20 @@ export function Hero() {
 
         <BubbleField className="z-10" />
 
+        <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-b from-black/25 via-transparent to-ink/80" />
+
         <div
           ref={bottleRef}
           className="absolute inset-x-0 bottom-0 z-20 flex justify-center will-change-transform"
           style={{ opacity: 0 }}
         >
-          <Bottle className="h-[38vh] max-h-[360px] animate-floaty" style={{ '--r0': '-2deg', '--r1': '2deg' } as React.CSSProperties} />
+          <img
+            src={glassSparkling1L}
+            alt="FLOE sparkling mineral water bottle"
+            className="h-[38vh] max-h-[360px] animate-floaty object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)]"
+            style={{ '--r0': '-2deg', '--r1': '2deg' } as React.CSSProperties}
+          />
         </div>
-
-        <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-black/25 via-transparent to-ink" />
 
         <div className="relative z-30 h-full w-full [text-shadow:0_4px_30px_rgba(0,0,0,0.45)]">
           <div ref={s1Ref} className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">

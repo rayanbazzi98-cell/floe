@@ -1,9 +1,10 @@
 import { forwardRef } from 'react'
 
 /**
- * CSS-only stand-in for a Lebanon mountain/spring photo (no image-generation
- * or file-download tool is available in this harness) — layered clip-path
- * ridgelines + a soft glare, used as the Ken Burns background layer.
+ * CSS-only stand-in for a Lebanon mountain/spring photo (no wide landscape
+ * shot was available — the supplied product photo is a portrait bottle
+ * shot that crops badly full-bleed) — layered clip-path ridgelines + a
+ * soft glare, used as the Ken Burns background layer in the hero.
  */
 export const IceMountain = forwardRef<HTMLDivElement>(function IceMountain(_props, ref) {
   return (

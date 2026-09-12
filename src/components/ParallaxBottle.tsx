@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Bottle } from '@/assets/Bottle'
+import glassSparkling033 from '@/assets/bottles/glass-sparkling-033.png'
 import { clamp, cn } from '@/lib/utils'
 
 /**
@@ -52,7 +52,7 @@ export function ParallaxBottle({ className }: { className?: string }) {
 
   return (
     <div ref={outerRef} className={cn('will-change-transform', className)}>
-      <Bottle className="h-full w-full animate-floaty" />
+      <img src={glassSparkling033} alt="" className="h-full w-full animate-floaty object-contain" />
     </div>
   )
 }

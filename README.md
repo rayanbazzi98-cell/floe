@@ -9,27 +9,26 @@ npm run dev
 
 ## What's real vs. placeholder
 
-This environment has no general network access (outbound egress is blocked
-to floeworld.com and effectively every other site) and no way to save
-pasted image attachments to disk, so the real logo file, bottle photography,
-and site copy could not be pulled in directly. What's here instead:
+Product photos (`src/assets/bottles/`) are real — all 5 SKUs, used directly
+in the hero, product cards, and the parallax bottle. Sizes/pack counts read
+off those photos are marked `sizeConfirmed: true` in `src/lib/content.ts`.
+
+Still placeholder, because this environment has no general network access
+(outbound egress is blocked to floeworld.com and effectively every other
+site) and no way to save pasted image attachments to disk until the direct
+uploads that landed the product photos:
 
 - **`src/assets/Logo.tsx`** — a recreated wordmark (bold red lowercase
   "floe"), not the source logo file.
-- **`src/assets/Bottle.tsx`** — an illustrated SVG bottle, not the supplied
-  product photo. Label copy ("NATURAL MINERAL WATER", "LOW IN SODIUM",
-  "0.33 L") is taken from the one reference photo that was shared.
 - **`src/assets/IceMountain.tsx`** — a CSS/gradient stand-in for a Lebanon
-  mountain/spring shot, used as the Ken Burns background layer in the hero.
-- **`src/lib/content.ts`** — all site copy and product data in one file.
-  Only the 0.33 L PET bottle is confirmed; the other two SKU sizes/prices
-  and the FAQ/contact copy are placeholders written in FLOE's voice, marked
-  with comments in that file. Swap in the real data there and the whole
-  site updates.
-
-To finish this with real assets: drop photos into `src/assets/bottles/`
-and swap the `<Bottle />` usages for `<img>` tags, replace `Logo.tsx`'s
-text with an `<img>` of the real logo file, and update `content.ts`.
+  mountain/spring shot, used as the Ken Burns background layer in the hero
+  (the real product photos are portrait bottle shots — full-bleed as a
+  landscape hero background, they just crop into a zoomed-in bottle, so
+  they're used as bottle images instead, not backgrounds).
+- **Prices** in `content.ts` (`priceConfirmed: false` on every product) —
+  real sizes, placeholder prices, pending the price list.
+- Hero/purity-claims copy, FAQ, and contact info are still placeholder
+  copy written in FLOE's voice — marked with comments in `content.ts`.
 
 ## Cart & checkout
 
