@@ -3,6 +3,16 @@ import { Logo } from '@/assets/Logo'
 import { FAQ } from '@/components/FAQ'
 import { brand, contact } from '@/lib/content'
 
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 export function Footer() {
   return (
     <section id="contact" className="bg-paper px-6 py-32 sm:px-10">
@@ -22,6 +32,14 @@ export function Footer() {
               <ArrowRight className="h-4 w-4" />
             </a>
             <p className="mt-2 font-body text-ink/60">{contact.phone}</p>
+            <a
+              href={`https://wa.me/${contact.whatsapp}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 inline-block font-body text-ink/60 hover:text-floe-red"
+            >
+              WhatsApp
+            </a>
           </div>
 
           <div>
@@ -30,8 +48,9 @@ export function Footer() {
               href={`https://instagram.com/${contact.instagram.replace('@', '')}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 inline-block font-body text-ink hover:text-floe-red"
+              className="mt-3 flex items-center gap-2 font-body text-ink hover:text-floe-red"
             >
+              <InstagramIcon />
               {contact.instagram}
             </a>
           </div>

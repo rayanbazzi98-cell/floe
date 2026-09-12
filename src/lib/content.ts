@@ -180,6 +180,8 @@ export const faq = [
 export const contact = {
   email: 'hello@floeworld.com',
   phone: '+961 1 000 000',
+  /** Digits only, with country code, no + or spaces — used to build the wa.me link. */
+  whatsapp: '9611000000',
   instagram: '@floeworld',
 }
 
