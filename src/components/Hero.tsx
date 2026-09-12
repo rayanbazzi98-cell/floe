@@ -82,7 +82,7 @@ export function Hero() {
             <img
               src={glassSparkling1L}
               alt="FLOE sparkling mineral water bottle"
-              className="h-[38vh] max-h-[360px] animate-floaty object-contain drop-shadow-[0_40px_50px_rgba(0,0,0,0.5)]"
+              className="h-[56vh] max-h-[560px] animate-floaty object-contain drop-shadow-[0_40px_50px_rgba(0,0,0,0.5)]"
               style={{ '--r0': '-2deg', '--r1': '2deg' } as React.CSSProperties}
             />
           </div>
@@ -105,10 +105,14 @@ export function Hero() {
             </Stagger>
           </div>
 
-          <div ref={s3Ref} className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center" style={{ opacity: 0 }}>
+          <div
+            ref={s3Ref}
+            className="absolute inset-0 flex flex-col items-center justify-start px-6 pt-[16vh] text-center sm:pt-[13vh]"
+            style={{ opacity: 0 }}
+          >
             <Stagger show={active === 's3'}>
               <Logo className="mx-auto h-10 sm:h-12" />
-              <h2 className="mt-4 font-display text-5xl leading-none text-white sm:text-7xl">{hero.s3.title}</h2>
+              <h2 className="mt-4 font-display text-4xl leading-none text-white sm:text-7xl">{hero.s3.title}</h2>
             </Stagger>
           </div>
         </div>
