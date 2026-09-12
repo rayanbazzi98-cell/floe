@@ -1,16 +1,16 @@
 import glassSparkling033 from '@/assets/bottles/glass-sparkling-033.png'
 import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
+import glassStill033 from '@/assets/bottles/glass-still-033.png'
+import glassStill1L from '@/assets/bottles/glass-still-1L.png'
 import petStill05L12Pack from '@/assets/bottles/pet-still-05L-12pack.png'
 import petStill1L6Pack from '@/assets/bottles/pet-still-1L-6pack.png'
+import petStill033_12Pack from '@/assets/bottles/pet-still-033-12pack.png'
 
 // Site copy & product data for FLOE.
 //
 // The product catalog (names/sizes/pack counts/prices) is read straight off
-// the real floeworld.com shop page — all 7 SKUs, all CONFIRMED. Three of
-// them (330ml/12-pack PET, still glass 12-pack, still glass 24-pack) don't
-// have a matching product photo yet — showing the wrong bottle (e.g. a
-// "sparkling" label on a still product) would misrepresent it, so those
-// render a "Photo pending" placeholder instead of `image`.
+// the real floeworld.com shop page — all 7 SKUs, all CONFIRMED, all with a
+// matching real product photo now.
 // Everything else (hero copy, purity claims, FAQ, contact info) remains
 // placeholder copy written in FLOE's voice — swap it for the real thing
 // whenever you can get it to this session.
@@ -98,6 +98,7 @@ export const products: Product[] = [
     price: 3.95,
     sizeConfirmed: true,
     priceConfirmed: true,
+    image: petStill033_12Pack,
   },
   {
     id: 'pet-still-05l-12pack',
@@ -119,6 +120,7 @@ export const products: Product[] = [
     price: 16,
     sizeConfirmed: true,
     priceConfirmed: true,
+    image: glassStill1L,
   },
   {
     id: 'glass-sparkling-1l-12pack',
@@ -140,6 +142,7 @@ export const products: Product[] = [
     price: 16,
     sizeConfirmed: true,
     priceConfirmed: true,
+    image: glassStill033,
   },
   {
     id: 'glass-sparkling-330ml-24pack',

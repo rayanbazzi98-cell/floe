@@ -12,13 +12,8 @@ npm run dev
 The real logo (`src/assets/brand/logo.png`, rendered via `src/assets/Logo.tsx`
 — `filter: brightness(0) invert(1)` produces the white variant for dark
 backgrounds) and the full 7-SKU product catalog (names, sizes, pack counts,
-and prices in `src/lib/content.ts`) are real, read straight off
-floeworld.com's shop page. 4 of the 7 SKUs have a matching real product
-photo (`src/assets/bottles/`); the other 3 (330ml/12-pack PET, still glass
-12-pack, still glass 24-pack) render a "Photo pending" placeholder card
-rather than a real-but-wrong photo (e.g. a "sparkling" label on a still
-product) — add `image: yourImport` to those entries in `content.ts` once
-you have the photos.
+prices, and now photos, all in `src/lib/content.ts` / `src/assets/bottles/`)
+are real, read straight off floeworld.com's shop page.
 
 Still placeholder:
 
