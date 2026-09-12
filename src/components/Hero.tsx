@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { ArrowDown } from 'lucide-react'
 import { Logo } from '@/assets/Logo'
 import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
-import { IceMountain } from '@/assets/IceMountain'
+import heroPhoto from '@/assets/bottles/pet-still-033-lifestyle.jpg'
 import { useScrollScrub } from '@/hooks/useScrollScrub'
 import { heroProgress } from '@/lib/scrollProgress'
 import {
@@ -57,7 +57,12 @@ export function Hero() {
     <section id="home" ref={trackRef} className="relative h-[500vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-ink">
         <div ref={mountainRef} className="absolute inset-0 will-change-transform">
-          <IceMountain />
+          <img
+            src={heroPhoto}
+            alt=""
+            className="h-full w-full object-cover"
+            style={{ objectPosition: '50% 64%' }}
+          />
         </div>
 
         <BubbleField className="z-10" />
