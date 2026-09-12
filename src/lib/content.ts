@@ -11,9 +11,9 @@ import petStill033_12Pack from '@/assets/bottles/pet-still-033-12pack.png'
 // The product catalog (names/sizes/pack counts/prices) is read straight off
 // the real floeworld.com shop page — all 7 SKUs, all CONFIRMED, all with a
 // matching real product photo now.
-// Everything else (hero copy, purity claims, FAQ, contact info) remains
-// placeholder copy written in FLOE's voice — swap it for the real thing
-// whenever you can get it to this session.
+// Contact info (email, phone, WhatsApp, Instagram) is real too. Hero copy,
+// purity claims, and FAQ remain placeholder copy written in FLOE's voice —
+// swap it for the real thing whenever you can get it to this session.
 
 export const brand = {
   name: 'FLOE',
@@ -176,12 +176,11 @@ export const faq = [
   },
 ]
 
-// PLACEHOLDER — replace with FLOE's real contact details.
 export const contact = {
-  email: 'hello@floeworld.com',
-  phone: '+961 1 000 000',
+  email: 'info@floeworld.com',
+  phone: '+961 70 335 522',
   /** Digits only, with country code, no + or spaces — used to build the wa.me link. */
-  whatsapp: '9611000000',
+  whatsapp: '96170335522',
   instagram: '@floeworld',
 }
 
