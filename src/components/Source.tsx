@@ -1,3 +1,4 @@
+import { BubbleField } from '@/components/BubbleField'
 import { GlitchText } from '@/components/GlitchText'
 import { ParallaxBottle } from '@/components/ParallaxBottle'
 import { purityClaims } from '@/lib/content'
@@ -19,8 +20,9 @@ export function Source() {
           </p>
         </div>
 
-        <div className="relative mx-auto h-[420px] w-full max-w-xs">
-          <div className="absolute inset-0 rounded-full bg-floe-glacier/20 blur-3xl" />
+        <div className="relative mx-auto h-[560px] w-full max-w-sm">
+          <div className="absolute inset-0 rounded-full bg-floe-glacier/25 blur-3xl" />
+          <BubbleField count={20} bubbleClassName="bg-floe-glacier/70" />
           <ParallaxBottle className="relative h-full w-full" />
         </div>
       </div>

@@ -21,7 +21,15 @@ function makeBubbles(count: number): Bubble[] {
   }))
 }
 
-export function BubbleField({ className, count = 26 }: { className?: string; count?: number }) {
+export function BubbleField({
+  className,
+  count = 26,
+  bubbleClassName = 'bg-floe-mist',
+}: {
+  className?: string
+  count?: number
+  bubbleClassName?: string
+}) {
   const bubbles = useMemo(() => makeBubbles(count), [count])
 
   return (
@@ -29,7 +37,7 @@ export function BubbleField({ className, count = 26 }: { className?: string; cou
       {bubbles.map((b) => (
         <span
           key={b.id}
-          className="absolute bottom-0 rounded-full bg-floe-mist animate-rise"
+          className={cn('absolute bottom-0 rounded-full animate-rise', bubbleClassName)}
           style={
             {
               left: `${b.left}%`,
