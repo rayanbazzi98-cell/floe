@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react'
 import { ArrowDown } from 'lucide-react'
 import { Logo } from '@/assets/Logo'
-import { IceMountain } from '@/assets/IceMountain'
 import glassSparkling1L from '@/assets/bottles/glass-sparkling-1L.png'
-import heroPhoto from '@/assets/bottles/pet-still-033-hero.jpg'
+import heroPhoto from '@/assets/bottles/pet-still-033-hero-sharp.jpg'
 import { useScrollScrub } from '@/hooks/useScrollScrub'
 import { heroProgress } from '@/lib/scrollProgress'
 import {
@@ -22,7 +21,6 @@ import { BubbleField } from '@/components/BubbleField'
 export function Hero() {
   const trackRef = useRef<HTMLElement>(null)
   const mountainRef = useRef<HTMLDivElement>(null)
-  const photoRef = useRef<HTMLDivElement>(null)
   const bottleRef = useRef<HTMLDivElement>(null)
   const s1Ref = useRef<HTMLDivElement>(null)
   const s2Ref = useRef<HTMLDivElement>(null)
@@ -36,7 +34,6 @@ export function Hero() {
     heroProgress.set(p)
 
     if (mountainRef.current) mountainRef.current.style.transform = mountainTransform(p)
-    if (photoRef.current) photoRef.current.style.transform = mountainTransform(p)
 
     if (bottleRef.current) {
       const b = bottleStyle(p)
@@ -60,18 +57,11 @@ export function Hero() {
     <section id="home" ref={trackRef} className="relative h-[500vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-ink">
         <div ref={mountainRef} className="absolute inset-0 will-change-transform">
-          <IceMountain />
-        </div>
-
-        <div ref={photoRef} className="absolute inset-0 z-[5] flex items-center justify-center will-change-transform">
           <img
             src={heroPhoto}
             alt="FLOE bottle in the snow, mountains behind"
-            className="h-full max-w-none object-contain"
-            style={{
-              maskImage: 'radial-gradient(ellipse 65% 88% at 50% 52%, black 55%, transparent 100%)',
-              WebkitMaskImage: 'radial-gradient(ellipse 65% 88% at 50% 52%, black 55%, transparent 100%)',
-            }}
+            className="h-full w-full object-cover"
+            style={{ objectPosition: '50% 64%' }}
           />
         </div>
 

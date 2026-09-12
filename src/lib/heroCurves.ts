@@ -35,7 +35,7 @@ export function activeSection(p: number): 's1' | 's2' | 's3' | null {
 }
 
 export function mountainTransform(p: number): string {
-  const scale = 1 + p * 0.22
+  const scale = 1 + p * 0.1
   const y = -p * 34
   return `scale(${scale}) translateY(${y}px)`
 }
